@@ -65,7 +65,7 @@ void GameScene::Initialize(DirectXCommon* dxCommon, Input* input)
 	modelSkydome = Model::CreateFromOBJ("skydome");
 	modelGround = Model::CreateFromOBJ("ground");
 	modelFighter = Model::CreateFromOBJ("chr_sword");
-	modelSphere = Model::CreateFromOBJ("sphere");
+	modelSphere = Model::CreateFromOBJ("sphere",true);
 
 	objSkydome->SetModel(modelSkydome);
 	objGround->SetModel(modelGround);
@@ -84,6 +84,11 @@ void GameScene::Update()
 	objGround->Update();
 	objFighter->Update();
 	objSphere->Update();
+
+	XMFLOAT3 rot = objSphere->GetPosition();
+	rot.y += 1.0f;
+	objSphere->SetRotation(rot);
+	objFighter->SetRotation(rot);
 
 	debugText.Print("AD: move camera LeftRight", 50, 50, 1.0f);
 	debugText.Print("WS: move camera UpDown", 50, 70, 1.0f);

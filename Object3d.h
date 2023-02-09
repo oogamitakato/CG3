@@ -115,6 +115,8 @@ public: // メンバ関数
 
 	void SetRotation(XMFLOAT3 rotation) { this->rotation = rotation; }
 
+	const XMFLOAT3& GetRotation() { return rotation; }
+
 	/// <summary>
 	/// スケールの設定
 	/// </summary>
